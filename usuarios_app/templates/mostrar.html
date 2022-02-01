@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mostrar</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='CSS/sty_mostrar.css')}}">
+    </head>
+    <body>
+        <form action="/usuarios" method="GET" class="navegacion">
+            <h1>Usuario {{usuario.id}}</h1>
+            <button>
+                Volver a usuarios
+            </button>
+        </form>
+        <div>
+            <p>Full name: {{usuario.nombre}} {{usuario.apellido}}</p>
+            <p>Email: {{usuario.email}}</p>
+            <p>Created on: {{usuario.created_at}}</p>
+            <p>Last update on: {{usuario.update_at}}</p>
+        </div>
+        <form action="/usuarios/{{usuario.id}}/editar" method="GET"> 
+            <button>
+                Editar
+            </button>
+        </form>
+        <form action="/usuarios/{{usuario.id}}/eliminar" method="POST">
+            <button>
+                Eliminar
+            </button>
+        </form>
+    </body>
+
+</html>

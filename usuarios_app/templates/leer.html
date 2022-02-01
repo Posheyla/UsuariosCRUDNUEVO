@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/sty_leer.css')}}">
+</head>
+<body>
+    <h1>ALL USERS</h1>
+    
+    <table class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>E-mail</th>
+            <th>Created at</th>
+            <th>Actions</th>
+        </tr>
+        {%for usuario in listaDeUsuarios:%}
+            <tr>
+                <td>
+                    {{usuario.id}}
+                </td>
+                <td>
+                    {{usuario.nombre}} {{usuario.apellido}}
+                </td>
+                <td>
+                    {{usuario.email}}
+                </td>
+                <td>
+                    {{usuario.created_at}}
+                </td>
+                <th>
+                    <div class="comandos">
+                        <form action="/usuarios/{{usuario.id}}" method="GET">
+                            <button>
+                                Mostrar
+                            </button>
+                        </form>
+                        <form action="/usuarios/{{usuario.id}}/editar" method="GET">
+                            <button>
+                                Editar
+                            </button>
+                        </form>
+                        <form action="/usuarios/{{usuario.id}}/eliminar" method="POST">
+                            <button>
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </th>
+            </tr>
+        {%endfor%}
+    </table>
+    <form action="/" method="GET">
+        <button>
+            Add new user
+        </button>
+    </form>
+
+</body>
+</html>

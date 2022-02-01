@@ -1,0 +1,30 @@
+.navegacion{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+h1{
+    color:rgb(84, 84, 190);
+    text-align: center;
+}
+.contenedor{
+    background-color: cornflowerblue;
+    display:flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0px 200px;
+    padding: 0px 100px;
+}
+div{
+    margin:10px;
+    text-align: center;
+}
+#nombre{
+    width: 400px;
+}
+#apellido{
+    width: 400px;
+}
+#email{
+    width: 400px;
+}
